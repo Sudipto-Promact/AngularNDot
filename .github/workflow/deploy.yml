@@ -1,0 +1,23 @@
+name: Deploy
+on: [ push, workflow_dispatch]
+jobs:
+	my-deplop:
+	runs-on: ubuntu-latest
+	steps: 
+		- name: Get Code
+		  uses: actions/checkout@v3
+		  
+		- name: Install Dotnet
+		  uses: actions/setup-dotnet@v3
+		  with: 
+			dotnet-version: '3.0.x'
+		
+		- name: Install Dependencies
+		  run: dotnet restore
+			working-directory: /api
+			
+		- name: build
+		  run: dotnet build --configuration release
+		  
+		- name: Deploying
+		  run: echo "Deploying...."
