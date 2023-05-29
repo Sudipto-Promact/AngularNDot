@@ -22,11 +22,8 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v1
         with:
-          name: deploy_dist
+          name: deploy
           path: api
-        uses: actions/download-artifact@v1
-        with:
-          name: deploy_dist
       - name: Install surge and fire deployment
         uses: actions/setup-node@v1
         with:
