@@ -13,9 +13,9 @@ jobs:
         with:
           dotnet-version: 3.0.x
       - name: Install Dependencies
-        run: dotnet restore
-        working-directory: api
+        run: dotnet restore        
       - name: build
+        working-directory: api
         run: dotnet build --configuration release
       - name: Deploying
         run: echo "Deploying...."
